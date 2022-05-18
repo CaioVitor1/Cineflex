@@ -1,13 +1,16 @@
-import imagem2 from "./assets/image3.png"
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import React from "react";
+import { Link } from 'react-router-dom';
 
-function Movies({imagem}) {
+function Movies({imagem, id}) {
 
     return (
                 <div className="movie">
-                    <img src={imagem} />
+                    <Link to={`/sessoes/${id}`} >
+                        <img src={imagem} />
+                    </Link>
+                    
                 </div>
     )
 }
@@ -26,7 +29,7 @@ console.log(everyMovie)
         <div className="initialPage">
             <h3> Selecione o filme</h3>
             <div className="movies">
-                 {everyMovie.map(image => <Movies imagem={image.posterURL} /> )}
+                 {everyMovie.map(image => <Movies imagem={image.posterURL} id={image.id}/> )}
             </div> 
 
         </div>
