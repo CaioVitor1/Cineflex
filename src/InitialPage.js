@@ -4,7 +4,7 @@ import React from "react";
 import { Link } from 'react-router-dom';
 
 function Movies({imagem, id}) {
-
+    console.log(id)
     return (
                 <div className="movie">
                     <Link to={`/sessoes/${id}`} >
@@ -21,10 +21,10 @@ export default function InitialPage() {
     useEffect(() => {
         const promise = axios.get("https://mock-api.driven.com.br/api/v5/cineflex/movies");
         promise.then((response) => {
-          setEveryMovie([...response.data]);
+          setEveryMovie(response.data);
         });
       }, []);
-console.log(everyMovie)
+console.log( everyMovie)
     return (
         <div className="initialPage">
             <h3> Selecione o filme</h3>

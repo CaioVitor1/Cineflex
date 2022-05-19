@@ -66,6 +66,8 @@
   .movie-schedules{
     margin-left: 0px;
     justify-content: flex-start;
+    width: 100%;
+    margin-left: 35px;
     
   }
   .movie-schedules p {
@@ -102,4 +104,34 @@
     text-align: center;
     letter-spacing: 0.02em;
     color: #FFFFFF;
+  }
+  footer{
+    display: flex;
+    background: #E5E5E5;
+    width: 100%;
+    padding: 15px;
+    margin-top: 150px;
+  }
+  .imagem-rodape{
+    width: 64px;
+    height: 89px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .imagem-rodape img{
+    width: 48px;
+    height: 72px;
+  }
+  footer h4{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    color: #293845;
   }
