@@ -1,5 +1,4 @@
 import InitialPage from "./InitialPage";
-import imagem3 from "./assets/image9.png";
 import { Link, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -20,11 +19,11 @@ function MovieSchedules({weekday, date, index, showtimes1, showtimes2, id1, id2}
     )
 }
 
-function Footer({title}) {
+function Footer({title, image}) {
     return (
         <footer>
             <div className="imagem-rodape">
-                <img src={imagem3} />
+                <img src={image} />
             </div>
             <h4> {title}</h4>
         </footer>
@@ -65,7 +64,7 @@ export default function MovieTime() {
                    <button>16:00</button>
                 </div>
             </div>
-            <Footer title={horarios.title} />
+            <Footer title={horarios.title} image={horarios.posterURL} />
            
         </div>
     )
