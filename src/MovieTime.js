@@ -8,10 +8,10 @@ function MovieSchedules({weekday, date, index, showtimes1, showtimes2, id1, id2}
         <div className="movie-schedules" >
                 <p> {weekday} - {date} </p>
                 <div className="options">
-                    <Link to={`/assentos/${id1}`} >
+                    <Link style={{ textDecoration: 'none' }} to={`/assentos/${id1}`} >
                         <button>{showtimes1}</button>
                     </Link>
-                    <Link to={`/assentos/${id2}`} >
+                    <Link style={{ textDecoration: 'none' }} to={`/assentos/${id2}`} >
                         <button>{showtimes2}</button>
                     </Link>
                 </div>
@@ -31,7 +31,7 @@ function Footer({title, image}) {
     )
 }
 
-export default function MovieTime() {
+export default function MovieTime({setMovie}) {
     const { idFilme } = useParams();
     const [horarios, setHorarios] = useState([]);
     const [opcoes, setOpcoes] = useState([])
@@ -48,8 +48,9 @@ export default function MovieTime() {
    
     console.log(horarios)
     console.log(opcoes)
-    console.log(opcoes.showtimes)
-      
+    
+     
+    setMovie(horarios.title)
     
     return (
         <div className="initialPage">
@@ -57,13 +58,6 @@ export default function MovieTime() {
 
         {opcoes.map((options, index) => <MovieSchedules id1={options.showtimes[0].id} showtimes1={options.showtimes[0].name} id2={options.showtimes[1].id} showtimes2={options.showtimes[1].name} index={index} weekday={options.weekday} date={options.date} />)}
 
-            <div className="movie-schedules" >
-                <p> Sexta-Feira - 25/06/2022</p>
-                <div className="options">
-                   <button>15:00</button>
-                   <button>16:00</button>
-                </div>
-            </div>
             <Footer title={horarios.title} image={horarios.posterURL} />
            
         </div>

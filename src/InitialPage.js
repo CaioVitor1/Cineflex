@@ -4,7 +4,7 @@ import React from "react";
 import { Link } from 'react-router-dom';
 
 function Movies({imagem, id}) {
-    console.log(id)
+   
     return (
                 <div className="movie">
                     <Link to={`/sessoes/${id}`} >

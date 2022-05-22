@@ -15,7 +15,6 @@ function PlacesChoices({name, isAvailable, id, setIdPlace, idPlace}){
     const [selected, setSelected] = useState(false);
     const [available, setOccupied] = useState(isAvailable);
     
-    // agora preciso passar o setIdPlaces pra cá e alterar ele lá no onClick
     return (                    
         <div>
            {(available === false) && (selected === false) && (<div onClick={() => alert("Esse assento não está disponível")}><h4 className='place-occupied'>{name}</h4></div>)} 
@@ -24,26 +23,27 @@ function PlacesChoices({name, isAvailable, id, setIdPlace, idPlace}){
         </div>
     )
 }
-function Footer({horario}) {
-    console.log("chamei a API no FOOTER")
+function Footer({horario, title, image,newDate}) {
+   
     return (
         <footer>
             <div className="imagem-rodape">
-               <img src={imagem} />
+               <img src={image} />
             </div>
             <div className='infos'>
-                <h4>Nome do filme </h4>
-                <h4> {horario} - data</h4>
+                <h4>{title} </h4>
+                <h4> {horario} - {newDate}</h4>
             </div>
         </footer>
 
     )
 }
-export default function MoviePlace({setUser, user, cpf, setCpf, setIdPlace, idPlace, nomeComprador, setNomeComprador}) {
+export default function MoviePlace({movie, setDate, date, setTime, cpf, setCpf, setIdPlace, idPlace, nomeComprador, setNomeComprador}) {
     const { idSessao } = useParams();
     const [section, setSection] = useState([])
     const [places,setPlaces] = useState([]);
-    
+    const [infos, setInfos] = useState([]);
+    const [newDate, setNewDate] = useState("");
     function register2() {
         alert("Preencha todos os Campos")
     }
@@ -79,17 +79,17 @@ export default function MoviePlace({setUser, user, cpf, setCpf, setIdPlace, idPl
         const promise = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/showtimes/${idSessao}/seats`);
         promise.then((response) => {
             setSection(response.data)
-          setPlaces(response.data.seats);
-          
+            setPlaces(response.data.seats);
+            setInfos(response.data.movie)
+            setNewDate(response.data.day)
         });
        
       }, []);    
    
-    console.log(places);
-    console.log(nomeComprador)
-    console.log(cpf)
-    console.log(idPlace)
-    console.log(user)
+    console.log(section.movie);
+    
+    setDate(newDate.weekday)
+   setTime(section.name)
     return (
         <div className="initialPage">
             <h3> Selecione os assentos</h3>
@@ -133,7 +133,7 @@ export default function MoviePlace({setUser, user, cpf, setCpf, setIdPlace, idPl
         
         
 
-            <Footer horario={section.name} />
+            <Footer newDate={newDate.weekday} title={infos.title} horario={section.name} image={infos.posterURL}/>
             
         </div>
     )
