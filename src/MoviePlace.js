@@ -3,14 +3,11 @@ import axios from 'axios';
 import { Link, useParams,useHistory} from 'react-router-dom';
 import React from 'react';
 
-
 function PlacesChoices({name, seatName , setSeatName , isAvailable, id, setIdPlace, idPlace, index}){
     function add() {
         setSelected(true)
         setIdPlace([...idPlace,id]);
-        setSeatName([...seatName, name])
-         
-       
+        setSeatName([...seatName, name])  
     }
     function filtrando(value) {
         return value !== id
@@ -48,7 +45,6 @@ function Footer({horario, title, image,newDate}) {
                 <h4> {horario} - {newDate}</h4>
             </div>
         </footer>
-
     )
 }
 export default function MoviePlace({ seatName , setSeatName , setDate, date, setTime, cpf, setCpf, setIdPlace, idPlace, nomeComprador, setNomeComprador}) {
@@ -80,14 +76,11 @@ export default function MoviePlace({ seatName , setSeatName , setDate, date, set
                 .catch(err => {
                     console.log(err)
                 })
-                
+      
             console.log(body)
         }
-        <Link to={`/sucesso`} ></Link>
-        
+        <Link to={`/sucesso`} ></Link>    
     }
-
-
     useEffect(() => {
         const promise = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/showtimes/${idSessao}/seats`);
         promise.then((response) => {
@@ -99,8 +92,7 @@ export default function MoviePlace({ seatName , setSeatName , setDate, date, set
        
       }, []);    
    
-    console.log(section.movie);
-    
+    console.log(section.movie);   
     setDate(newDate.date)
    setTime(section.name)
    console.log(idPlace)
@@ -126,8 +118,7 @@ export default function MoviePlace({ seatName , setSeatName , setDate, date, set
                     <h5>Ocupado</h5> 
                 </div>
             </div>
-
-            
+        
                 <div className='info'>
                     <h3>Nome do comprador:</h3>
                     <input placeholder='Digite seu nome..' value={nomeComprador} onChange={(e) => setNomeComprador(e.target.value)} required/>
@@ -137,16 +128,7 @@ export default function MoviePlace({ seatName , setSeatName , setDate, date, set
                     (<button onClick={register2} type='submit'> Reservar assentos </button>) : 
                     <Link to={`/sucesso`} style={{ textDecoration: 'none' }} > <button onClick={register} type='submit'> Reservar assentos </button>
                         </Link> }
-                    
-                    
-   
-                   
-                </div>
-      
-
-            
-        
-        
+                </div>     
 
             <Footer newDate={newDate.weekday} title={infos.title} horario={section.name} image={infos.posterURL}/>
             

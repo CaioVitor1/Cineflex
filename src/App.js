@@ -7,7 +7,6 @@ import MovieTime from "./MovieTime";
 import MoviePlace from "./MoviePlace"
 import Sucess from "./Sucess";
 
-
 export default function App(){
     const[nomeComprador, setNomeComprador] = useState("");
     const [cpf, setCpf] = useState("");
