@@ -1,17 +1,30 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, useParams,useHistory} from 'react-router-dom';
-import imagem from "./assets/image9.png"
 import React from 'react';
 
 
-function PlacesChoices({name, isAvailable, id, setIdPlace, idPlace}){
+function PlacesChoices({name, seatName , setSeatName , isAvailable, id, setIdPlace, idPlace, index}){
     function add() {
         setSelected(true)
-        setIdPlace([...idPlace,id])
+        setIdPlace([...idPlace,id]);
+        setSeatName([...seatName, name])
+         
+       
     }
+    function filtrando(value) {
+        return value !== id
+    }
+    function filtrando2(value) {
+        return value !== name
+    }
+    function removePlace() {
+        setSelected(false)
+        setIdPlace(idPlace.filter(filtrando));
+        setSeatName(seatName.filter(filtrando2))
+      }
 
-
+    
     const [selected, setSelected] = useState(false);
     const [available, setOccupied] = useState(isAvailable);
     
@@ -19,7 +32,7 @@ function PlacesChoices({name, isAvailable, id, setIdPlace, idPlace}){
         <div>
            {(available === false) && (selected === false) && (<div onClick={() => alert("Esse assento não está disponível")}><h4 className='place-occupied'>{name}</h4></div>)} 
            {(available === true) && (selected === false) && (<div onClick={() => add()}><h4 className='place-free'>{name}</h4></div>)}
-           {(selected === true) && (<div onClick={() => (setSelected(false)) }><h4 className='place-selected'>{name}</h4></div>)}
+           {(selected === true) && (<div onClick={() => removePlace() }><h4 className='place-selected'>{name}</h4></div>)}
         </div>
     )
 }
@@ -38,7 +51,7 @@ function Footer({horario, title, image,newDate}) {
 
     )
 }
-export default function MoviePlace({movie, setDate, date, setTime, cpf, setCpf, setIdPlace, idPlace, nomeComprador, setNomeComprador}) {
+export default function MoviePlace({ seatName , setSeatName , setDate, date, setTime, cpf, setCpf, setIdPlace, idPlace, nomeComprador, setNomeComprador}) {
     const { idSessao } = useParams();
     const [section, setSection] = useState([])
     const [places,setPlaces] = useState([]);
@@ -88,13 +101,15 @@ export default function MoviePlace({movie, setDate, date, setTime, cpf, setCpf, 
    
     console.log(section.movie);
     
-    setDate(newDate.weekday)
+    setDate(newDate.date)
    setTime(section.name)
+   console.log(idPlace)
+   console.log(seatName)
     return (
         <div className="initialPage">
             <h3> Selecione os assentos</h3>
             <div className='places-choices'>
-              {places.map(assento => <PlacesChoices idPlace={idPlace} setIdPlace={setIdPlace} id={assento.id} name={assento.name} isAvailable={assento.isAvailable}/>)}  
+              {places.map((assento, index) => <PlacesChoices seatName={seatName} setSeatName={setSeatName} index={index} idPlace={idPlace} setIdPlace={setIdPlace} id={assento.id} name={assento.name} isAvailable={assento.isAvailable}/>)}  
                 
             </div>
             <div className='availability'>

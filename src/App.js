@@ -15,6 +15,7 @@ export default function App(){
     const [movie, setMovie] = useState("");
     const [date, setDate] = useState("");
     const [time, setTime] = useState("");
+    const [seatName, setSeatName] = useState([])
   
     
     
@@ -24,9 +25,9 @@ export default function App(){
             <Header />
             <Routes>
                 <Route path="/" element={<InitialPage />} />
-                <Route path="/sessoes/:idFilme" element={<MovieTime setMovie={setMovie}/>} />
-                <Route path="/assentos/:idSessao"  element={<MoviePlace setTime={setTime} setDate={setDate} movie={movie} cpf={cpf} setCpf={setCpf}  nomeComprador={nomeComprador} setNomeComprador={setNomeComprador} idPlace={idPlace} setIdPlace={setIdPlace} />} />
-                <Route path="/sucesso" element={<Sucess time={time} movie={movie} setDate={setDate} date={date} nomeComprador={nomeComprador} cpf={cpf} idPlace={idPlace} />} />
+                <Route path="/sessoes/:idFilme" element={<MovieTime movie={movie} setMovie={setMovie}/>} />
+                <Route path="/assentos/:idSessao"  element={<MoviePlace seatName={seatName} setSeatName={setSeatName}  setTime={setTime} setDate={setDate} movie={movie} cpf={cpf} setCpf={setCpf}  nomeComprador={nomeComprador} setNomeComprador={setNomeComprador} idPlace={idPlace} setIdPlace={setIdPlace} />} />
+                <Route path="/sucesso" element={<Sucess setSeatName={setSeatName} seatName={seatName} setTime={setTime} time={time} setMovie={setMovie} movie={movie} setDate={setDate} date={date} setNomeComprador={setNomeComprador} nomeComprador={nomeComprador} setCpf={setCpf} cpf={cpf} setIdPlace={setIdPlace} idPlace={idPlace} />} />
             </Routes>
 
        </BrowserRouter>

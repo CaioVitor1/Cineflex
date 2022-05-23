@@ -1,4 +1,23 @@
-export default function Sucess({movie, time, date, nomeComprador, cpf, idPlace}) {
+
+import { Link} from 'react-router-dom';
+function Seat({seat}) {
+    return(
+        <><h3> Assento {seat}</h3></>
+    )
+    
+}
+
+export default function Sucess({setMovie, setTime, setCpf, setDate, setIdPlace, setNomeComprador, setSeatName ,movie, time, date, nomeComprador, cpf, idPlace, seatName}) {
+    function reset() {
+        setMovie("");
+        setTime("");
+        setDate("");
+        setNomeComprador("");
+        setCpf("")
+        setSeatName([]);
+        setIdPlace([]);
+        console.log("resetamos as informações")
+    }
     return (
         <div className="sucess">
             <h2> Pedido feito com sucesso</h2>
@@ -8,15 +27,15 @@ export default function Sucess({movie, time, date, nomeComprador, cpf, idPlace})
                 <h3>{date} - {time}</h3>
 
                 <h2>Ingressos</h2>
-                <h3>Assento 15</h3>
-                <h3>Assento 16</h3>
+                {seatName.map(seat => <Seat seat={seat} />)}
 
                 <h2> Comprador</h2>
                 <h3>nome: {nomeComprador}</h3>
                 <h3>CPF: {cpf}</h3>
 
             </div>
-            <button> Voltar para home</button>
+            <Link to={`/`} style={{ textDecoration: 'none' }} >
+                <button onClick={reset}> Voltar para home</button>  </Link> 
         </div>
     )
 }

@@ -31,7 +31,7 @@ function Footer({title, image}) {
     )
 }
 
-export default function MovieTime({setMovie}) {
+export default function MovieTime({movie, setMovie}) {
     const { idFilme } = useParams();
     const [horarios, setHorarios] = useState([]);
     const [opcoes, setOpcoes] = useState([])
@@ -51,7 +51,7 @@ export default function MovieTime({setMovie}) {
     
      
     setMovie(horarios.title)
-    
+    console.log("o nome do filme é: " + movie)
     return (
         <div className="initialPage">
             <h3> Selecione o horário</h3>
