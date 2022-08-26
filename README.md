@@ -2,14 +2,14 @@
 
 # Cineflex
 <img height="500" width="500" src="./src/assets/cineflex.gif"> <br> <br>
-<a href='https://cineflex-aurfioan1-caiovitor1.vercel.app/'><button>  Teste aqui!</button></a>
+<a href='https://cineflex-aurfioan1-caiovitor1.vercel.app/'>  Teste aqui!</a>
 
 # Tabela de Conteúdos
 
 * [Sobre](#sobre)
 * [Funcionalidades](#funcionalidades)
 * [Tecnologias](#tecnologias)
-* [Pré-Requisitos](#pre-requisitos)
+* [Requisitos](#requisitos)
 
 # Sobre
 <h3> Nesse projeto fizemos uma Single-Page Application (SPA) para um cinema, usando React Router e consumindo uma API!</h3>
@@ -60,7 +60,7 @@
 
 <img  height="80" width="100" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg" /> <br>
 
-# Pré-Requisitos
+# Requisitos
 <h3> Antes de começar você precisará ter instalado na sua máquina um setup de um projeto react, o que inclui:<a href='https://www.devmedia.com.br/como-instalar-o-node-js-npm-e-o-react-no-windows/40329'> npm </a> e create-react-app (caso você queira começar o projeto do zero). Além disso, é bom ter um editor para trabalhar com o código como o <a href='https://code.visualstudio.com/download' > VSCode.</a> </h3>
 <h3> <b>Rodando o projeto em sua máquina:</b> </h3>
 
@@ -81,22 +81,6 @@
 
 Made with love by <a href='https://www.linkedin.com/in/caiovitor33/'> Caio Vitor </a>
 
-<style>
-    button{
-        width: 150px;
-        height: 41px;
-        background: gray;
-        border-radius: 10px;
-        font-family: 'Roboto';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 18px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        letter-spacing: 0.018em;
-        color: #FFFFFF;
-    }
-    </style>
+
 
     
