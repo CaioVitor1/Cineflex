@@ -70,14 +70,14 @@ export default function MoviePlace({ seatName , setSeatName , setDate, date, set
             const requisicao = axios.post("https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many", body)
             requisicao
                 .then(res => {
-                    console.log(res.data)
+                    
                    
                 })
                 .catch(err => {
-                    console.log(err)
+                    
                 })
       
-            console.log(body)
+           
         }
         <Link to={`/sucesso`} ></Link>    
     }
@@ -90,13 +90,9 @@ export default function MoviePlace({ seatName , setSeatName , setDate, date, set
             setNewDate(response.data.day)
         });
        
-      }, []);    
-   
-    console.log(section.movie);   
+      }, []);      
     setDate(newDate.date)
    setTime(section.name)
-   console.log(idPlace)
-   console.log(seatName)
     return (
         <div className="initialPage">
             <h3> Selecione os assentos</h3>

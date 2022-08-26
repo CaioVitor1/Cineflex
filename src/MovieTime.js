@@ -43,14 +43,8 @@ export default function MovieTime({movie, setMovie}) {
         });
        
       }, []);
-
-   
-    console.log(horarios)
-    console.log(opcoes)
     
-     
     setMovie(horarios.title)
-    console.log("o nome do filme é: " + movie)
     return (
         <div className="initialPage">
             <h3> Selecione o horário</h3>

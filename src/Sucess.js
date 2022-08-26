@@ -16,7 +16,6 @@ export default function Sucess({setMovie, setTime, setCpf, setDate, setIdPlace, 
         setCpf("")
         setSeatName([]);
         setIdPlace([]);
-        console.log("resetamos as informações")
     }
     return (
         <div className="sucess">

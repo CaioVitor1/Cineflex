@@ -24,7 +24,6 @@ export default function InitialPage() {
           setEveryMovie(response.data);
         });
       }, []);
-console.log( everyMovie)
     return (
         <div className="initialPage">
             <h3> Selecione o filme</h3>

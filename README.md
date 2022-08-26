@@ -1,70 +1,102 @@
-# Getting Started with Create React App
+<img height="100" width="500" src="./src/assets/cineflex.svg" /> <br>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Cineflex
+<img height="500" width="500" src="./src/assets/cineflex.gif"> <br> <br>
+<a href='https://cineflex-aurfioan1-caiovitor1.vercel.app/'><button>  Teste aqui!</button></a>
 
-## Available Scripts
+# Tabela de Conteúdos
 
-In the project directory, you can run:
+* [Sobre](#sobre)
+* [Funcionalidades](#funcionalidades)
+* [Tecnologias](#tecnologias)
+* [Pré-Requisitos](#pre-requisitos)
 
-### `npm start`
+# Sobre
+<h3> Nesse projeto fizemos uma Single-Page Application (SPA) para um cinema, usando React Router e consumindo uma API!</h3>
+ <h3>O cliente poderá escolher qual filme ele deseja assistir e em seguida selecionará quais os assentos deseja ocupar e qual horário de sua preferência. Será possível ver quais os assentos estarão reservados.</h3>
+<h3>  Ao finalizar o pedido o cliente terá acesso aos dados de sua compra e será possível voltar ao menu inicial.</h3> <br>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# Funcionalidades
+<details>
+    <summary><font size="4">Escolha de Filme (rota "/") </font></summary>
+   <h3> -  Buscar as informações dos filmes pela API fornecida e exibir conforme layout fornecido</h3>
+   <h3> -  Ao clicar em um filme, o usuário deve ser redirecionado para a rota "/sessoes/:idFilme", sendo :idFilme o id do filme clicado</h3> 
 
-### `npm test`
+</details>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<details>
+    <summary><font size="4">Escolha de Sessão (rota "/sessoes/:idFilme")</font></summary>
+   <h3> -  A partir do id da URL, obtenha da API as sessões disponíveis para o filme e exiba conforme o layout fornecido</h3>
+   <h3> -  Ao clicar em um filme, o usuário deve ser redirecionado para a rota "/sessoes/:idFilme", sendo :idFilme o id do filme clicado</h3> 
 
-### `npm run build`
+</details>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<details>
+    <summary><font size="4">Escolha de Assento (rota "/assentos/:idSessao")</font></summary>
+   <h3> -  A partir do id da sessão, buscar os dados da sessão da API e exibir o layout conforme fornecido</h3>
+   <h3> -  Ao clicar em um assento disponível, o assento deve ser marcado como "Selecionado"</h3> 
+   <h3> -  Ao clicar novamente em um assento selecionado, este deve voltar para "Disponível"</h3>
+   <h3> -  Ao clicar em um assento indisponível, deverá ser exibido um alerta de "Esse assento não está disponível"</h3> 
+    <h3> -  O usuário pode selecionar vários assentos</h3>
+   <h3> -  O usuário deve poder inserir o nome e o CPF do comprador</h3> 
+    <h3> -  Ao clicar em "Reservar assento(s)", o pedido deve ser enviado para o servidor e o usuário deve ser redirecionado para a rota "/sucesso".  Isso fará com os assentos marcados fiquem indisponíveis para outras marcações.</h3> 
+</details>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<details>
+    <summary><font size="4"> Rodapé</font></summary>
+   <h3> -  Ao longo das telas de Sessão e Assento, deve ser exibido um rodapé com as informações do filme selecionado. Estas informações virão das chamadas à API em cada tela</h3>
+  
+</details>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<details>
+    <summary><font size="4">Sucessp</font></summary>
+   <h3> -  Implementar layout conforme fornecido, exibindo os dados do pedido feito</h3>
+   <h3> -  Implementar layout conforme fornecido, exibindo os dados do pedido feito</h3> 
 
-### `npm run eject`
+</details> <br>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# Tecnologias
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<img  height="80" width="100" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg" /> <br>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# Pré-Requisitos
+<h3> Antes de começar você precisará ter instalado na sua máquina um setup de um projeto react, o que inclui:<a href='https://www.devmedia.com.br/como-instalar-o-node-js-npm-e-o-react-no-windows/40329'> npm </a> e create-react-app (caso você queira começar o projeto do zero). Além disso, é bom ter um editor para trabalhar com o código como o <a href='https://code.visualstudio.com/download' > VSCode.</a> </h3>
+<h3> <b>Rodando o projeto em sua máquina:</b> </h3>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```bash
 
-## Learn More
+ # Clone o repositório do projeto:
+ git clone</b> https://github.com/CaioVitor1/Cineflex.git
+ # Acesse a pasta do projeto:
+ cd cineflex
+ # Instale as dependencias:
+  npm i
+ # Execute a aplicação em modo de desenvolvimento: 
+ npm start
+# O servidor irá rodar na porta 3000. Acesse: http://localhost:3000/ 
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Made with love by <a href='https://www.linkedin.com/in/caiovitor33/'> Caio Vitor </a>
 
-### Code Splitting
+<style>
+    button{
+        width: 150px;
+        height: 41px;
+        background: gray;
+        border-radius: 10px;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        letter-spacing: 0.018em;
+        color: #FFFFFF;
+    }
+    </style>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    
